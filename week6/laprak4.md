@@ -6,6 +6,6 @@ Mata Kuliah : Jaringan Komputer
   
   
 ## Tujuan Laprak:
-- Modul 6: 
+- Modul 6: Mahasiswa dapat menginvestigasi cara kerja protokol TCP menggunakan Wireshark  
   
 ## Langkah-langkah Modul 6
