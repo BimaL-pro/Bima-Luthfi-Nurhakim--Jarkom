@@ -142,7 +142,6 @@ Lalu lihat Reassembled TCP segments di wireshark.
   
 - Jadi enam segmen pertama dalam TCP = 565 + 1460 + 1460 + 1460 + 1460 + 1460 = 7865 segmnets.  
   
-----------------------------------------------------------------------------------
 Berdasarkan trace, enam segmen pertama yang teridentifikasi adalah:  
 Frame 4 (Segmen 1): payload 0–564 (565 bytes), dikirim pada t = 0.026477 s  
 Frame 5 (Segmen 2): payload 565–2024 (1460 bytes), dikirim pada t = 0.041737 s  
@@ -150,7 +149,6 @@ Frame 7 (Segmen 3): payload 2025–3484 (1460 bytes), dikirim pada t = 0.054026 
 Frame 8 (Segmen 4): payload 3485–4944 (1460 bytes), dikirim pada t = 0.054690 s  
 Frame 10 (Segmen 5): payload 4945–6404 (1460 bytes), dikirim pada t = 0.077405 s  
 Frame 11 (Segmen 6): payload 6405–7864 (1460 bytes), dikirim pada t = 0.078157 s  
-----------------------------------------------------------------------------------
   
 - Nilai RTT diperoleh dari (ACK diterima - segmen dikirim). Berdasarkan grafik RTT yang dihasilkan melalui Statistics → TCP Stream Graph → Round Trip Time Graph, nilai RTT pada awal koneksi berkisar antara 27,5 ms hingga 270 ms, dengan pola yang berfluktuasi secara periodik sepanjang durasi transfer.  
   
@@ -158,7 +156,7 @@ Tampilan grafik Round Trip Time (RTT) untuk koneksi TCP ini:
   
 ![trace - 09](../assets/image/week6-32.png)  
 ![trace - 10](../assets/image/week6-33.png)  
-![trace - 11](../assets/image/week6-33.png)  
+![trace - 11](../assets/image/week6-34.png)  
   
 5. Panjang masing-masing dari enam segmen TCP pertama adalah sebagai berikut:  
 - Frame 4 (Segmen 1): 565 bytes
