@@ -203,12 +203,12 @@ Ini waktu tranfer:
   
 Jadi total data yang dikirim dari klien ke server adalah 164 kB dalam rentang waktu sekitar 5.65 detik. Nilai throughput rata-rata dihitung sebagai berikut:  
   
-'''
+{content: }
 Throughput = Total Data ÷ Waktu Transfer
            = 164000 bytes ÷ 5,65 detik
            ≈ 28318 bytes/detik
            ≈ 226,5 kbps
-'''
+{content: }
   
 ----------------------------------------------------------------------------------------------------------------------------------
   
