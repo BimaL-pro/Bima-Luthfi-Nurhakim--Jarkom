@@ -1,4 +1,4 @@
-# Laporan praktikun 5 - 6, April 2026
+# Laporan praktikun 4 - 6, April 2026
   
 | Field       | Data                 |
 |-------------|----------------------|
