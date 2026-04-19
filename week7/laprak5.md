@@ -10,18 +10,19 @@
   
 ## Tujuan Laprak:
 - Modul 7: 1. Mahasiswa bisa membuat program berbasis socket UDP
-           2. Mahasiswa bisa membuat program berbasis socket TCP
+- Modul 7: 2. Mahasiswa bisa membuat program berbasis socket TCP
   
 ----------------------------------------------------------------------------------------------------------------------------------
   
 ## 7.1 Pengantar
+----------------------------------------------------------------------------------------------------------------------------------
 Typical network application terdiri dari sepasang program—program klien dan program server—yang berada di dua sistem akhir yang berbeda. Ketika kedua program ini dijalankan, proses klien dan proses server dibuat, dan proses ini berkomunikasi satu sama lain dengan membaca dari, dan menulis ke, soket. Saat membuat aplikasi jaringan, tugas utama developer adalah menulis kode untuk program klien dan server.  Ada dua jenis network applications. Pertama adalah implementasi yang operasinya ditentukan dalam standar protokol, seperti RFC atau beberapa dokumen standar lainnya; aplikasi semacam itu kadang-kadang disebut sebagai "terbuka", karena aturan yang menentukan operasinya diketahui semua orang. Untuk implementasi seperti itu, program klien dan server harus sesuai dengan aturan yang ditentukan oleh RFC.
 ----------------------------------------------------------------------------------------------------------------------------------
   
 ## Langkah-langkah Modul 7
   
 ## 7.2 Program Socket dengan UDP
-  
+----------------------------------------------------------------------------------------------------------------------------------
 Di bagian ini, kita akan menulis program client-server sederhana yang menggunakan UDP dan  menulis program serupa yang menggunakan TCP. Proses yang berjalan pada mesin yang berbeda berkomunikasi satu sama lain dengan mengirimkan pesan ke dalam soket. Kita mengatakan bahwa setiap proses dianalogikan dengan sebuah rumah dan soket proses dianalogikan dengan sebuah pintu. Aplikasi berada di satu sisi pintu di rumah; protokol transport-layer berada di sisi lain pintu di dunia luar. Developer aplikasi memiliki kendali atas segala sesuatu di sisi lapisan aplikasi soket namun, ia memiliki sedikit kontrol dari sisi transport-layer.
 ----------------------------------------------------------------------------------------------------------------------------------
   
@@ -155,7 +156,7 @@ Ini adalah contoh implementasinya:
 ![VScode - 03](../assets/image/week7-03.png)  
   
 ## 7.3 Program Socket dengan TCP
-  
+----------------------------------------------------------------------------------------------------------------------------------
 Selanjutnya adalah membuat program dengan socket yaitu TCP setelah melakukan praktikum dengan UDP. TCP merupakan protokol berorientasi koneksi. Ini berarti bahwa sebelum client dan server dapat mulai mengirim data satu sama lain, mereka harus terlebih dahulu handshake dan membuat koneksi TCP.Saat membuat koneksi TCP, kita mengaitkannya dengan alamat soket client dan alamat soket server. Dengan koneksi TCP dibangun, ketika satu sisi ingin mengirim data ke sisi lain, itu hanya memasukkan data ke dalam koneksi TCP melalui soketnya.
 ----------------------------------------------------------------------------------------------------------------------------------
   
