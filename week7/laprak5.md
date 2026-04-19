@@ -151,7 +151,7 @@ finally:
 Program dimulai dengan membuat socket UDP yaitu SOCK_DGRAM. Tidak seperti client, server harus melakukan bind, yaitu memasukkan port sesuai dengan praktikum yaitu 12000 agar sistem tahu bahwa semua data yang masuk ke port tersebut harus dikirim ke program ini. Kemudian Server masuk ke loop dengan while True yang membuatnya terus berjalan tanpa berhenti. Di dalam loop ini, fungsi serverSocket.recvfrom(2048) akan memblokir eksekusi program sampai ada data yang datang dari client. Ketika data datang, server mendapatkan dua hal yaitu pesan dan alamat pengirim. Setelah pesan diterima dan didekode menjadi teks, server melakukan pengecekan kondisi. Jika client mengirimkan 'exit', server akan memberi output pesan penutup dan keluar dari loop. Jika pesan berupa teks biasa, server akan mengubah teks itu menjadi huruf kapital menggunakan fungsi .upper(). dan terakhir adalah mengirimkan kembali teks yang sudah diubah ke client menggunakan fungsi send(), dengan clientAddress yang didapat sebagai tujuan. dan seluruh proses dijadikan satu dalam try-except-finally.  
   
 Ini adalah contoh implementasinya:  
-![VScode - 03](../assets/image/week7-03.png)  
+![VScode - 03](../assets/image/week7-02.png)  
   
 ## 7.3 Program Socket dengan TCP
   
