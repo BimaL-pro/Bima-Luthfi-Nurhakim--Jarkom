@@ -9,8 +9,8 @@
   
   
 ## Tujuan Laprak:
-- Modul 7: 1. Mahasiswa bisa membuat program berbasis socket UDP
-- Modul 7: 2. Mahasiswa bisa membuat program berbasis socket TCP
+- Modul 7: 1. Mahasiswa bisa membuat program berbasis socket UDP.
+- Modul 7: 2. Mahasiswa bisa membuat program berbasis socket TCP.
   
 ----------------------------------------------------------------------------------------------------------------------------------
   
@@ -50,7 +50,7 @@ Lalu buat file udp-client.py dan udp-server.py.
   
 Dibawah ini adalah code untuk udp-client.py:  
   
-```
+```python
 from socket import *
 import sys
 
@@ -105,7 +105,7 @@ Pertama kita mengimpor semua library Socket dan library sys untuk sistem, lalu m
   
 Dibawah ini adalah code untuk udp-server.py:  
   
-```
+```python
 from socket import *
 import sys
 
@@ -164,7 +164,7 @@ Lalu buat file tcp-client.py dan tcp-server.py.
   
 Dibawah ini adalah code untuk tcp-client.py:  
   
-```
+```python
 # SOCKRT = penjumlahan, pengurangan, perkalian, pembagian
 from socket import * # import all
 
@@ -212,7 +212,7 @@ Pertama program menginisiasi alamat server sebagai localhost dengan alamat host 
   
 ### 7.3.2 tcp-server.py
   
-```
+```python
 from socket import *
 
 serverPort = 12000
