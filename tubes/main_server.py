@@ -143,9 +143,10 @@ def forward_message(header, payload):
 
     if sender_data:
         try:
+            thread_mode = header.get("thread_mode", "single")
             send_packet(sender_data["socket"], {
                 "action": "status",
-                "message": "Terkirim ke: " + str(delivered) + " | Gagal: " + str(failed)
+                "message": "Mode: " + thread_mode + " | Terkirim ke: " + str(delivered) + " | Gagal: " + str(failed)
             })
         except:
             pass

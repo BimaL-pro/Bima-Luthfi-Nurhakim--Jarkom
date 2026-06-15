@@ -7,8 +7,9 @@ import os
 import time
 from turtle import mode
 
-HOST = "127.0.0.1"
+HOST = "10.218.8.109"
 PORT = 12345
+send_lock = threading.Lock()
 
 def start_client():
     host = input("Host server : ").strip()
@@ -59,13 +60,16 @@ def start_client():
         choice = input("Pilih menu: ")
 
         if choice == "1":
-            send_data(sock, client_name, "unicast")
+            thread_mode = choose_thread_mode()
+            send_data(sock, client_name, "unicast", thread_mode)
 
         elif choice == "2":
-            send_data(sock, client_name, "multicast")
+            thread_mode = choose_thread_mode()
+            send_data(sock, client_name, "multicast", thread_mode)
 
         elif choice == "3":
-            send_data(sock, client_name, "broadcast")
+            thread_mode = choose_thread_mode()
+            send_data(sock, client_name, "broadcast", thread_mode)
 
         elif choice == "4":
             send_packet(sock, {
@@ -144,6 +148,15 @@ def save_received_file(client_name, sender, filename, payload):
     return path
 
 
+def choose_thread_mode():
+    print()
+    print("Pilih mode pengiriman:")
+    print("1. Single Thread")
+    print("2. Multi Thread")
+    ch = input("Pilihan: ")
+    return "multi" if ch == "2" else "single"
+
+
 def receiver_loop(sock, client_name):
     while True:
         try:
@@ -205,25 +218,25 @@ def choose_content():
             print("Maksimal 5 kata")
             return None, None, None, None
 
-        return "text", "words", None, text.encode("utf-8")
+        return "text", "kata", None, text.encode("utf-8")
 
     if choice == "2":
         text = input("Masukkan 1 kalimat panjang: ")
-        return "text", "sentence", None, text.encode("utf-8")
+        return "text", "kalimat", None, text.encode("utf-8")
 
     if choice == "3":
         text = input("Masukkan 1 paragraf: ")
-        return "text", "paragraph", None, text.encode("utf-8")
+        return "text", "paragraf", None, text.encode("utf-8")
 
     if choice == "4":
         path = input("Masukkan path file dokumen: ")
         allowed = [".txt", ".docx", ".pdf"]
-        content_type = "document"
+        content_type = "dokumen"
 
     elif choice == "5":
         path = input("Masukkan path gambar: ")
         allowed = [".jpg", ".jpeg", ".png"]
-        content_type = "image"
+        content_type = "gambar"
 
     elif choice == "6":
         path = input("Masukkan path audio: ")
@@ -257,7 +270,7 @@ def choose_content():
     return "file", content_type, filename, payload
 
 
-def send_data(sock, client_name, mode):
+def send_data(sock, client_name, mode, thread_mode="single"):
     targets = []
 
     if mode == "unicast":
@@ -301,6 +314,34 @@ def send_data(sock, client_name, mode):
         "content_type": content_type,
         "filename": filename
     }
+    header["thread_mode"] = thread_mode
+    if thread_mode == "single":
+        send_packet(sock, header, payload)
+        return True
+    if thread_mode == "multi":
+        if mode in ("unicast", "multicast") and targets:
+            threads = []
+            def worker(hdr, pl):
+                with send_lock:
+                    try:
+                        send_packet(sock, hdr, pl)
+                    except Exception as e:
+                        print("Send thread error:", e)
+
+            for t in targets:
+                h2 = dict(header)
+                h2["targets"] = [t]
+                th = threading.Thread(target=worker, args=(h2, payload))
+                th.start()
+                threads.append(th)
+
+            for th in threads:
+                th.join()
+
+            return True
+        else:
+            send_packet(sock, header, payload)
+            return True
 
     send_packet(sock, header, payload)
     return True

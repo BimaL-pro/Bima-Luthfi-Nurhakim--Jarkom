@@ -64,6 +64,7 @@ Lalu lakukan filter "tcp".
   
 ### Pertanyaan
 1. Berapa alamat IP dan nomor port TCP yang digunakan oleh komputer klien (sumber) untuk mentransfer file ke gaia.cs.umass.edu? Cara paling mudah menjawab pertanyaan ini adalah dengan memilih sebuah pesan HTTP dan meneliti detail paket TCP yang digunakan untuk membawa pesan HTTP tersebut.
+  
 2. Apa alamat IP dari gaia.cs.umass.edu? Pada nomor port berapa ia mengirim dan menerima 
 segmen TCP untuk koneksi ini?
   
@@ -91,7 +92,10 @@ Dengan memilih pesan HTTP dan melihat paket TCP yang digunakan untuk membawa pes
 ![alice - 17](../assets/image/week6-16.png)  
 ![alice - 18](../assets/image/week6-16.png)  
   
-Jadi alamat IPnya adalah 10.217.7.77 dan port yang digunakan adalah 53709.  
+Jadi alamat IPnya adalah 10.217.7.77 dan port yang digunakan adalah 53709 didapat dari gambar dibawah ini.
+![alice - 16](../assets/image/week6-188.png)
+![alice - 14](../assets/image/week6-133.png)
+
   
 ----------------------------------------------------------------------------------------------------------------------------------
   
