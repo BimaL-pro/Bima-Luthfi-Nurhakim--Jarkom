@@ -1,0 +1,124 @@
+# Kamus Markdown (MD)
+
+## Judul
+
+`#` = Judul besar
+`##` = Judul sedang
+`###` = Judul kecil
+
+Contoh:
+
+# Judul
+
+## Sub Judul
+
+---
+
+## Teks
+
+`**teks**` = teks tebal
+`*teks*` = teks miring
+`***teks***` = tebal + miring
+
+---
+
+## List / Daftar
+
+`-` = bullet list
+`1.` = list bernomor
+
+Contoh:
+
+* Modul 1
+* Modul 2
+
+1. Langkah pertama
+2. Langkah kedua
+
+---
+
+## Gambar
+
+`![nama](path_gambar)` = menampilkan gambar
+
+Contoh:
+![Install](../assets/image/week2-01.png)
+
+📌 teks dalam `[]` hanya alt text
+
+---
+
+## Link
+
+`[nama link](alamat link)` = membuat link
+
+Contoh:
+[Wireshark](https://www.wireshark.org)
+
+---
+
+## Baris Baru
+
+Tambahkan **2 spasi di akhir baris** agar pindah baris
+
+Contoh:
+Nama : Bima␠␠
+NIM : 103072400030
+
+---
+
+## Garis Pembatas
+
+`---`
+
+---
+
+## Kutipan
+
+`> teks`
+
+Contoh:
+
+> Catatan penting
+
+---
+
+## Code
+
+Gunakan tiga backtick:
+
+```python
+print("Hello")
+```
+
+---
+
+## Tabel
+
+```md
+| Kolom 1 | Kolom 2 |
+|---------|---------|
+| Isi A   | Isi B   |
+```
+
+---
+
+## Checklist
+
+`- [ ]` = belum selesai
+`- [x]` = selesai
+
+Contoh:
+
+* [x] Modul 1
+* [ ] Modul 2
+
+Salin text =
+```
+kalimat
+```
+
+
+
+Pangkat di atas = <sup>6</sup>
+Pangkat di dibawah = <sub>6</sub>

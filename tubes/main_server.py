@@ -17,7 +17,6 @@ def main_server():
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.bind((HOST, PORT))
     server.listen()
-
     print("Server multithread berjalan di", HOST, PORT)
 
     while True:

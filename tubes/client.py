@@ -7,7 +7,7 @@ import os
 import time
 from turtle import mode
 
-HOST = "10.218.8.109"
+HOST = "127.0.0.1"
 PORT = 12345
 send_lock = threading.Lock()
 
@@ -157,6 +157,29 @@ def choose_thread_mode():
     return "multi" if ch == "2" else "single"
 
 
+def process_sentence_input(text):
+    text = text.strip()
+    if text == "":
+        print("Input kalimat tidak boleh kosong")
+        return None
+
+    dot_count = text.count('.')
+    if dot_count == 0:
+        return text
+
+    if dot_count > 1:
+        print("Input hanya boleh satu kalimat. Program tidak boleh melebihi 1 kalimat.")
+        return None
+
+    # Hanya baca hingga titik pertama, dan pastikan titik tetap ada
+    sentence = text.split('.', 1)[0].strip()
+    if sentence == "":
+        print("Input kalimat tidak valid")
+        return None
+
+    return sentence + '.'
+
+
 def receiver_loop(sock, client_name):
     while True:
         try:
@@ -222,7 +245,10 @@ def choose_content():
 
     if choice == "2":
         text = input("Masukkan 1 kalimat panjang: ")
-        return "text", "kalimat", None, text.encode("utf-8")
+        processed = process_sentence_input(text)
+        if processed is None:
+            return None, None, None, None
+        return "text", "kalimat", None, processed.encode("utf-8")
 
     if choice == "3":
         text = input("Masukkan 1 paragraf: ")
@@ -345,6 +371,10 @@ def send_data(sock, client_name, mode, thread_mode="single"):
 
     send_packet(sock, header, payload)
     return True
+
+
+
+
 
 if __name__ == "__main__":
     start_client()
